@@ -1,0 +1,36 @@
+import React from 'react'
+import style from './style.css'
+
+class Drawing extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { visible: props.visible, };
+    };
+
+
+    componentWillReceiveProps(nextProps) {
+    }
+
+
+
+
+
+    onClose() {
+        this.props.onClose()
+    }
+
+    render() {
+
+        return <section>
+            {this.props.children}
+        </section>
+    }
+}
+
+Drawing.defaultProps = {
+    popup: false,
+    visible: false,
+    onClose() {
+    },
+}
+export default Drawing

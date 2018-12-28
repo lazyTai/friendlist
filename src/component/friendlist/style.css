@@ -1,0 +1,43 @@
+.right {
+  position: fixed;
+  top: px2rem(100);
+  right: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .rigthItem {
+    height: 20px;
+    &.active {
+      background: #0e80d2;
+      color: #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.body {
+  background: #fff;
+  display: flex;
+  .main {
+    overflow-y: auto;
+    flex: 1;
+    .mainItemLabel {
+      height: 20px;
+      display: flex;
+      align-items: center;
+      background: #eee;
+    }
+    .mainItem {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}

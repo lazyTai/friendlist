@@ -1,0 +1,25 @@
+import React from 'react';
+import styles from './style.css'
+import {getHistory} from "../../util/uitls";
+import pageRedux from '../pageRedux'
+
+export class Home extends React.Component {
+    constructor(props) {
+        super()
+        this.state = {}
+    }
+
+    componentDidMount() {
+
+    }
+
+
+    render() {
+        var self = this
+        return <div title="通讯录">
+        </div>
+    }
+}
+
+
+export default pageRedux(Home)

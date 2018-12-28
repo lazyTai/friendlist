@@ -1,0 +1,25 @@
+
+html, body {
+  padding: 0;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:global {
+  .switch-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .switch-wrapper > div {
+    width: 100%;
+    position: absolute;
+  }
+}
+
+
+
