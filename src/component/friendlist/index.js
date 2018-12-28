@@ -21,7 +21,7 @@ class FriendList extends React.Component {
         var scrollTop = 0;
         if (!this.main_zhimu) return false
         scrollTop = this.main_zhimu.dataset.scrollTop
-        var _a = closest(-scrollTop * 2, this.state.offsetTopList, "offsetTop")
+        var _a = closest(-scrollTop, this.state.offsetTopList, "offsetTop")
         // console.log(_a, scrollTop* 2)
         setTimeout(() => {
             self.setState({active_zhimu: _a.label})
@@ -33,7 +33,7 @@ class FriendList extends React.Component {
         var scrollTop = this.state.offsetTopList_obj[itemStr]
         setTimeout(() => {
             // self.main_zhimu.style.transform = `translateY(-${scrollTop}px)`
-            document.body.scrollTop = scrollTop / 2
+            document.body.scrollTop = scrollTop
             self.setState({active_zhimu: itemStr,})
         }, 300)
 
@@ -48,12 +48,11 @@ class FriendList extends React.Component {
 
         document.addEventListener("scroll", function (e) {
             if (!self.state.offsetTopList.length) return false
-            if (document.body.scrollTop * 2 > self.state.offsetTopList[self.state.offsetTopList.length - 1].offsetTop) {
-                document.body.scrollTop = self.state.offsetTopList[self.state.offsetTopList.length - 1].offsetTop / 2
+            if (document.body.scrollTop > self.state.offsetTopList[self.state.offsetTopList.length - 1].offsetTop) {
+                document.body.scrollTop = self.state.offsetTopList[self.state.offsetTopList.length - 1].offsetTop
                 return false
             }
             if (self.main_zhimu) {
-                self.main_zhimu.style.transform = `translateY(-${document.body.scrollTop}px)`;
                 self.main_zhimu.dataset['scrollTop'] = -document.body.scrollTop;
             }
             self.scrollEndTimeout && clearTimeout(self.scrollEndTimeout)
@@ -91,7 +90,6 @@ class FriendList extends React.Component {
     }
 
     render() {
-        debugger
         var self = this
         var active_zhimu = this.state.active_zhimu
         return <section className={style.body} ref={(node) => this.body = node}>
@@ -102,7 +100,7 @@ class FriendList extends React.Component {
                         return self.renderZhiMu(item, key)
                     })
                 }
-
+                <div style={{height: 800}}></div>
             </div>
             <div className={style.right}>
                 {

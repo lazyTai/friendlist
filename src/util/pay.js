@@ -19,7 +19,6 @@ export function wx_pay(orderId) {
                     },
                     function (res) {
                         var newUrl = encodeURI(`https://m.diyeetech.com/orderdetail/${orderId}`)
-                        debugger
                         setTimeout(() => {
                             location.href = (newUrl)
                             return resolve({success: true})

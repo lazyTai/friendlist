@@ -8,7 +8,6 @@ var Visualizer = require('webpack-visualizer-plugin');
 var mode = process.env.NODE_ENV,
     devMode = mode !== 'production';
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-console.error(path.resolve(__dirname, "../src/style/customeAntd/custom.less"))
 baseConfig.module.rules = baseConfig.module.rules.concat([
     {
         test: /\.(js|jsx)$/,
@@ -47,7 +46,21 @@ baseConfig.module.rules = baseConfig.module.rules.concat([
                 }
             },
         ],
-    }
+    },
+    {
+        test: /\.less$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            {
+                loader: "css-loader",
+                options: {
+                    module: false,
+                    sourceMap: false,
+                }
+            },
+            {loader: 'less-loader', options: {javascriptEnabled: true}},
+        ],
+    },
 ]);
 var plugins = baseConfig.plugins.concat(new Visualizer())
 var config = {

@@ -1,7 +1,6 @@
 import _Filter from 'lodash.filter'
 import _Map from 'lodash.map'
 import _Uniq from 'lodash.sorteduniq'
-import mergeByKey from "array-merge-by-key";
 
 export const MyMap = _Map
 export const Filter = _Filter
@@ -26,11 +25,6 @@ export function mergeArray(a1, a2, key) {
     return finshArray
 }
 
-export function deleteTheSameOneArray(_needA, _longA, key) {
-
-
-    return mergeByKey(key, _needA, _longA)
-}
 
 export function max(m1, m2) {
     if (m1 > m2) {
@@ -50,7 +44,7 @@ export function min(m1, m2) {
     }
 }
 
-export function closest(num=0, arr, key) {
+export function closest(num = 0, arr, key) {
     var curr = arr[0];
     var diff = Math.abs(num - curr[key]);
     for (var val = 0; val < arr.length; val++) {
